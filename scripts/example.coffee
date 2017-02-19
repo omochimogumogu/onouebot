@@ -16,7 +16,7 @@ module.exports = (robot) ->
     robot.send {room: "#general"}, "おはっす", null, true, "Asia/Hanoi"
     cron.start()
 
-  robot.hear /お願いします/i, (msg) ->
+  robot.hear /.*(お願いします|お願い|おねがいします|おねがい|下さい|ください).*/, (msg) ->
     replies = [
         "#{msg.message.user.name}あ、いいっすよ",
         "#{msg.message.user.name}あ、全然いいっすよ",
