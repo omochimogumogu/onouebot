@@ -24,3 +24,28 @@ module.exports = (robot) ->
         "ちょっと久保さん呼んできます。"
       ]
     msg.send msg.random replies
+
+  robot.hear /.*(尾上).*/, (msg) ->
+    msg.send "むっちゃいじられてる"
+
+  robot.hear /.*(好き).*/, (msg) ->
+    msg.send "#{msg.message.user.name}絶対思ってないでしょ(笑)"
+
+  robot.respond /(.*)/i, (msg) ->
+    ryuki_replies = [
+      "あ、林さん、",
+      "マジすか",
+      "確かに",
+      "ヤバイっすね",
+      "ちょっと久保さん呼んできます。",
+      "いや...ちょっと",
+      "そっすね、",
+      "行きましょう。"
+    ]
+    name = msg.message.user.name
+    if name == "ayame"
+      msg.send "長野さん、ほんまにうるさい"
+    else if name == "ryuki"
+      msg.send msg.random ryuki_replies
+    else
+      msg.send "うす、"
